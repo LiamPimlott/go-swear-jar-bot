@@ -19,7 +19,7 @@ var (
 func init() {
 	subreddit = os.Getenv("SWEARBOT_SUBREDDIT")
 
-	swearRegex = os.Getenv("SWEARBOT_AGENT_FILE")
+	swearRegex = os.Getenv("SWEARBOT_REGEX")
 	re = regexp.MustCompile(swearRegex)
 
 	swearBotConfig = reddit.BotConfig{
