@@ -32,3 +32,8 @@
 [[constraint]]
   branch = "master"
   name = "github.com/turnage/graw"
+
+[metadata.heroku]
+  root-package = "github.com/LiamPimlott/go-swear-jar-bot"
+  go-version = "go1.12.9"
+  install = [ "./..." ]
