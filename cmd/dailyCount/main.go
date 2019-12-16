@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 	"regexp"
+	"time"
 
-	"github.com/turnage/graw"
 	"github.com/turnage/graw/reddit"
 )
 
@@ -34,18 +34,14 @@ func init() {
 }
 
 func main() {
+	start := time.Now()
+
 	if bot, err := reddit.NewBot(swearBotConfig); err != nil {
 		fmt.Println("Failed to create bot handle: ", err)
 	} else {
-		cfg := graw.Config{
-			Subreddits:        []string{subreddit},
-			SubredditComments: []string{subreddit},
-		}
 		handler := &swearBot{bot: bot}
-		if _, wait, err := graw.Run(handler, bot, cfg); err != nil {
-			fmt.Println("Failed to start graw run: ", err)
-		} else {
-			fmt.Println("graw run failed: ", wait())
-		}
+		handler.DailyCount()
 	}
+
+	fmt.Printf("\n\nExecution time: %s", time.Since(start))
 }
