@@ -37,3 +37,7 @@
   root-package = "github.com/LiamPimlott/go-swear-jar-bot"
   go-version = "go1.12.9"
   install = [ "./..." ]
+
+[[constraint]]
+  name = "github.com/boltdb/bolt"
+  version = "1.3.1"
